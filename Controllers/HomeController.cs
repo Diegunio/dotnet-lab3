@@ -59,6 +59,10 @@ public class HomeController : Controller
 
     public IActionResult Delete(int id)
     {
+        var exists = _phoneBook.GetContacts().Any(c => c.Id == id);
+        if (!exists)
+            return NotFound();
+
         _phoneBook.Remove(id);
         return RedirectToAction("Index2");
     }

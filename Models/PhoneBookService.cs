@@ -84,4 +84,9 @@ public class PhoneBookService
         contact.Id = contacts.Max(x => x.Id) + 1;
         contacts.Add(contact);
     }
+
+    public void Remove(int id)
+    {
+        contacts.RemoveAll(c => c.Id == id);
+    }
 }

@@ -9,7 +9,7 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
 
     private readonly PhoneBookService _phoneBook;
- 
+
     public HomeController(ILogger<HomeController> logger, PhoneBookService phoneBook)
     {
         _logger = logger;
@@ -57,4 +57,9 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Delete(int id)
+    {
+        _phoneBook.Remove(id);
+        return RedirectToAction("Index2");
+    }
 }

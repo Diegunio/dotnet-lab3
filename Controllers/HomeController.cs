@@ -8,9 +8,17 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private readonly PhoneBookService _phoneBook;
+ 
+    public HomeController(ILogger<HomeController> logger, PhoneBookService phoneBook)
     {
         _logger = logger;
+        _phoneBook = phoneBook;
+    }
+
+    public IActionResult Index2()
+    {
+        return View(_phoneBook.GetContacts());
     }
 
     public IActionResult Index()

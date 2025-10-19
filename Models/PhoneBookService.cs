@@ -1,3 +1,5 @@
+namespace lab3.Models;
+
 public class PhoneBookService
 {
     private List<Contact> contacts;

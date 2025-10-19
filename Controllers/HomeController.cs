@@ -39,4 +39,22 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Contact contact)
+    {
+        if (ModelState.IsValid)
+        {
+            _phoneBook.Add(contact);
+            return RedirectToAction("Index2", "Home");
+        }
+
+        return View();
+    }
+
 }

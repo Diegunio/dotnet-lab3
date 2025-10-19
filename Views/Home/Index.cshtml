@@ -1,8 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var random = (double)ViewData["random"];
+    var isBig = random > 0.5;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p class="lead">@DateTime.Now.ToString("D")</p>
+
+    @if (isBig)
+    {
+        <p style="background-color:red; color:black; padding:4px; display:inline-block;">
+            @random
+        </p>
+    }
+    else
+    {
+        <p>@random</p>
+    }
 </div>

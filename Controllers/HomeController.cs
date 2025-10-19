@@ -15,6 +15,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        Random r = new Random();
+        ViewData["random"] = r.NextDouble();
+
         return View();
     }
 

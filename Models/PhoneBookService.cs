@@ -85,8 +85,14 @@ public class PhoneBookService
         contacts.Add(contact);
     }
 
-    public void Remove(int id)
+    public bool Remove(int id)
     {
-        contacts.RemoveAll(c => c.Id == id);
+        var contact = contacts.FirstOrDefault(c => c.Id == id);
+        if (contact != null)
+        {
+            contacts.Remove(contact);
+            return true;
+        }
+        return false;
     }
 }
